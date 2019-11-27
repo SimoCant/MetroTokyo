@@ -5,7 +5,7 @@ public class Station {
 	
 	public Station(String name) {
 		this.name = name;
-		System.out.print("CIAO");
+		System.out.print("CIAOoo!");
 	}
 
 	public String getName() {
