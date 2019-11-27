@@ -10,5 +10,4 @@ public class Estaciones {
 	public String getName() {
 		return name;
 	}
-
 }
