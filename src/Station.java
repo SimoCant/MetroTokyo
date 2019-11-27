@@ -1,9 +1,9 @@
 
-public class Estaciones {
+public class Station {
 	
 	private String name;
 	
-	public Estaciones(String name) {
+	public Station(String name) {
 		this.name = name;
 	}
 
