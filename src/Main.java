@@ -39,6 +39,7 @@ public class Main {
 			 put(Constants.IIDABASHI, new Station(Constants.IIDABASHI, 35.701944, 139.745));
 			 put(Constants.IICHIGAYA, new Station(Constants.IICHIGAYA, 35.691111, 139.735556));
 			 put(Constants.SUIDOBASHI, new Station(Constants.SUIDOBASHI, 35.702, 139.754));
+			
 			 
 		 }};
 		 
