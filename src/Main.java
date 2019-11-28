@@ -5,6 +5,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("Let's start this fuc*in' project");		
 
+		
 	}
 
 }
