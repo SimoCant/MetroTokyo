@@ -8,21 +8,25 @@ public class Station {
 	private HashMap<String, Double> nearStations = new HashMap<>();
 	private ArrayList<Integer> lines = new ArrayList<>();
 	
-	public Station(String name, double latitude, double longitude) {
+	public Station(String name, double longitude, double latitude) {
 		this.name = name;
-		this.latitude = latitude;
 		this.longitude = longitude;
+		this.latitude = latitude;
 	}
 
 	public String getName() {
 		return name;
 	}
-
+	
+	public double getLongitude() {
+		return longitude;
+	}
+	
 	public double getLatitude() {
 		return latitude;
 	}
 	
-	public double getLongitude() {
-		return longitude;
+	public String toString() {
+		return name;
 	}
 }
