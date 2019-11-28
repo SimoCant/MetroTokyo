@@ -6,7 +6,7 @@ public class Station {
 	private String name;
 	private double latitude, longitude;
 	private HashMap<String, Double> nearStations = new HashMap<>();
-	private ArrayList<Integer> lines = new ArrayList<Integer>();
+	private ArrayList<Integer> lines = new ArrayList<>();
 	
 	public Station(String name, double latitude, double longitude) {
 		this.name = name;
