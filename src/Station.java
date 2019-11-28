@@ -22,7 +22,7 @@ public class Station {
 		return latitude;
 	}
 	
-	public double getongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 }
