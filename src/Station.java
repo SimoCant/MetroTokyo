@@ -29,4 +29,8 @@ public class Station {
 	public String toString() {
 		return name;
 	}
+	
+	public void addNearStation(String name, Double distance) {
+		nearStations.put(name, distance);		
+	}
 }
