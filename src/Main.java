@@ -36,8 +36,8 @@ public class Main {
 			 put(Constants.SENDAGAYA, new Station(Constants.SENDAGAYA, 35.681111, 139.711389));
 			 put(Constants.SHINANOMACHI, new Station(Constants.SHINANOMACHI, 35.68, 139.720278));
 			 put(Constants.YOTSUYA, new Station(Constants.YOTSUYA, 35.686111, 139.730556));
-			 put(Constants.IICHIGAYA, new Station(Constants.IICHIGAYA, 35.691111, 139.735556));
 			 put(Constants.IIDABASHI, new Station(Constants.IIDABASHI, 35.701944, 139.745));
+			 put(Constants.IICHIGAYA, new Station(Constants.IICHIGAYA, 35.691111, 139.735556));
 			 put(Constants.SUIDOBASHI, new Station(Constants.SUIDOBASHI, 35.702, 139.754));
 			 
 		 }};
