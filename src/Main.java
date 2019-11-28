@@ -6,6 +6,7 @@ public class Main {
 		 HashMap<String, Station> stations = new HashMap<String, Station>(){{
 			 put(Constants.YOYOGI, new Station(Constants.YOYOGI,35.683828, 139.70232));
 			 put(Constants.SHINJUKU, new Station(Constants.SHINJUKU,35.690278, 139.700556));
+			 put(Constants.OCHANOMIZU, new Station(Constants.OCHANOMIZU,35.699722, 139.763889));
 			 put(Constants.SHINOKUBO, new Station(Constants.SHINOKUBO, 35.701063, 139.700228));
 			 put(Constants.TAKADANOBABA, new Station(Constants.TAKADANOBABA, 35.712778,	139.703889));
 			 put(Constants.MEJIRO, new Station(Constants.MEJIRO, 35.720994,	139.706881));
@@ -42,8 +43,115 @@ public class Main {
 			
 			 
 		 }};
+		
+		 //verde
 		 
-		 
+		stations.get(Constants.YOYOGI).addNearStation(Constants.SHINJUKU, 0.7);
+		stations.get(Constants.SHINJUKU).addNearStation(Constants.YOYOGI, 0.7);
+		
+		stations.get(Constants.HARAJUKU).addNearStation(Constants.YOYOGI, 1.5);
+		stations.get(Constants.YOYOGI).addNearStation(Constants.HARAJUKU, 1.5);
+		
+		stations.get(Constants.SENDAGAYA).addNearStation(Constants.YOYOGI, 1.0);
+		stations.get(Constants.YOYOGI).addNearStation(Constants.SENDAGAYA, 1.0); 
+		
+		stations.get(Constants.SHINJUKU).addNearStation(Constants.SHINOKUBO, 1.3);
+		stations.get(Constants.SHINOKUBO).addNearStation(Constants.SHINJUKU, 1.3);
+		
+		stations.get(Constants.SHINOKUBO).addNearStation(Constants.TAKADANOBABA, 1.4);
+		stations.get(Constants.TAKADANOBABA).addNearStation(Constants.SHINOKUBO, 1.4);
+		
+		stations.get(Constants.TAKADANOBABA).addNearStation(Constants.MEJIRO, 0.9);
+		stations.get(Constants.MEJIRO).addNearStation(Constants.TAKADANOBABA, 0.9);
+
+		stations.get(Constants.MEJIRO).addNearStation(Constants.IKEBUKURO, 1.2);
+		stations.get(Constants.IKEBUKURO).addNearStation(Constants.MEJIRO, 1.2);
+
+		stations.get(Constants.IKEBUKURO).addNearStation(Constants.OTSUKA, 1.8);
+		stations.get(Constants.OTSUKA).addNearStation(Constants.IKEBUKURO, 1.8);
+
+		stations.get(Constants.OTSUKA).addNearStation(Constants.SUGAMO, 1.1);
+		stations.get(Constants.SUGAMO).addNearStation(Constants.OTSUKA, 1.1);
+
+		stations.get(Constants.SUGAMO).addNearStation(Constants.KOMAGOME, 0.7);
+		stations.get(Constants.KOMAGOME).addNearStation(Constants.SUGAMO, 0.7);
+
+		stations.get(Constants.KOMAGOME).addNearStation(Constants.TABATA, 1.6);
+		stations.get(Constants.TABATA).addNearStation(Constants.KOMAGOME, 1.6);
+
+		stations.get(Constants.TABATA).addNearStation(Constants.NISHINIPPORI, 0.8);
+		stations.get(Constants.NISHINIPPORI).addNearStation(Constants.TABATA, 0.8);
+
+		stations.get(Constants.NISHINIPPORI).addNearStation(Constants.NIPPORI, 0.5);
+		stations.get(Constants.NIPPORI).addNearStation(Constants.NISHINIPPORI, 0.5);
+
+		stations.get(Constants.NIPPORI).addNearStation(Constants.UGUISUDANI, 1.1);
+		stations.get(Constants.UGUISUDANI).addNearStation(Constants.NIPPORI, 1.1);
+
+		stations.get(Constants.UGUISUDANI).addNearStation(Constants.UENO, 1.1);
+		stations.get(Constants.UENO).addNearStation(Constants.UGUISUDANI, 1.1);
+
+		stations.get(Constants.UENO).addNearStation(Constants.OKACHIMACHI, 0.6);
+		stations.get(Constants.OKACHIMACHI).addNearStation(Constants.UENO, 0.6);
+
+		stations.get(Constants.OKACHIMACHI).addNearStation(Constants.AKIHABARA, 1.0);
+		stations.get(Constants.AKIHABARA).addNearStation(Constants.OKACHIMACHI, 1.0);
+
+		stations.get(Constants.AKIHABARA).addNearStation(Constants.KANDA, 0.7);
+		stations.get(Constants.KANDA).addNearStation(Constants.AKIHABARA, 0.7);
+
+		stations.get(Constants.KANDA).addNearStation(Constants.TOKYO, 1.3);
+		stations.get(Constants.TOKYO).addNearStation(Constants.KANDA, 1.3);
+
+		stations.get(Constants.TOKYO).addNearStation(Constants.YURAKUCHO, 0.8);
+		stations.get(Constants.YURAKUCHO).addNearStation(Constants.SHIMBASHI, 1.1);
+		stations.get(Constants.SHIMBASHI).addNearStation(Constants.HAMAMATSUCHO, 1.2);
+		stations.get(Constants.HAMAMATSUCHO).addNearStation(Constants.TAMACHI, 1.5);
+		stations.get(Constants.TAMACHI).addNearStation(Constants.SHINAGAWA, 2.2);
+		stations.get(Constants.SHINAGAWA).addNearStation(Constants.OSAKI, 2.0);
+		stations.get(Constants.OSAKI).addNearStation(Constants.GOTANDA, 0.9);
+		stations.get(Constants.GOTANDA).addNearStation(Constants.MEGURO, 1.2);
+		stations.get(Constants.MEGURO).addNearStation(Constants.EBISU, 1.5);
+		stations.get(Constants.EBISU).addNearStation(Constants.SHIBUYA, 1.6);
+		stations.get(Constants.SHIBUYA).addNearStation(Constants.HARAJUKU, 1.2);
+
+		//amarilla
+		stations.get(Constants.SENDAGAYA).addNearStation(Constants.SHINANOMACHI, 0.7);
+		stations.get(Constants.SHINANOMACHI).addNearStation(Constants.SENDAGAYA, 0.7);
+
+		stations.get(Constants.SHINANOMACHI).addNearStation(Constants.YOTSUYA, 1.3);
+		stations.get(Constants.YOTSUYA).addNearStation(Constants.SHINANOMACHI, 1.3);
+
+		stations.get(Constants.YOTSUYA).addNearStation(Constants.IICHIGAYA, 0.8);
+		stations.get(Constants.IICHIGAYA).addNearStation(Constants.YOTSUYA, 0.8);
+		
+		stations.get(Constants.IICHIGAYA).addNearStation(Constants.IIDABASHI, 1.5);
+		stations.get(Constants.IIDABASHI).addNearStation(Constants.IICHIGAYA, 1.5);
+		
+		stations.get(Constants.IIDABASHI).addNearStation(Constants.SUIDOBASHI, 0.9);
+		stations.get(Constants.SUIDOBASHI).addNearStation(Constants.IIDABASHI, 0.9);
+		
+		stations.get(Constants.SUIDOBASHI).addNearStation(Constants.OCHANOMIZU, 0.8);
+		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.SUIDOBASHI, 0.8);
+
+		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.AKIHABARA, 0.9);
+		stations.get(Constants.AKIHABARA).addNearStation(Constants.OCHANOMIZU, 0.9);
+
+		
+		//roja
+		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.TOKYO, 2.6);
+		stations.get(Constants.TOKYO).addNearStation(Constants.OCHANOMIZU, 2.6);
+		
+		stations.get(Constants.SHINJUKU).addNearStation(Constants.OCHANOMIZU, 7.7);
+		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.SHINJUKU, 7.7);
+
+
+		
+	
+
+
+
+
 		System.out.println(stations);
 	}
 }

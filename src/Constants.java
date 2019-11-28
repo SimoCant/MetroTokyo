@@ -35,6 +35,8 @@ public final class Constants {
 	static final String IICHIGAYA="Iichigaya";	
 	static final String SUIDOBASHI="Suidobashi";
 	static final String IIDABASHI="Iidabashi";	
+	static final String OCHANOMIZU = "Ochanomizu";	
+
 	
 	
 
