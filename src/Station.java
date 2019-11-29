@@ -9,7 +9,8 @@ public class Station {
 	private Map<String, Double> nearStations = new HashMap<>();
 	private ArrayList<Integer> lines = new ArrayList<>();
 	
-	public Station(String name, double longitude, double latitude, HashMap<String, Double> nearStations, ArrayList<Integer> lines) {
+
+	public Station(String name, double latitude, double longitude) {
 		this.name = name;
 		this.longitude = longitude;
 		this.latitude = latitude;
@@ -30,6 +31,10 @@ public class Station {
 	}
 	
 	public String toString() {
-		return longitude + ", " + latitude + "; near stations: " + nearStations + "; lines" + lines;
+		return longitude + ", " + latitude + "; near stations: " + nearStations + "; lines" + lines + "\n";
+	}
+	
+	public void addNearStation(String name, Double distance) {
+		nearStations.put(name, distance);		
 	}
 }
