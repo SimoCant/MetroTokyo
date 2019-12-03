@@ -142,6 +142,13 @@ public class Main {
 
 		stations.get(Constants.SHIBUYA).addNearStation(Constants.HARAJUKU, 1.2);
 		stations.get(Constants.HARAJUKU).addNearStation(Constants.SHIBUYA, 1.2);
+		
+		//roja Chuo Line (Rapid Service)
+		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.TOKYO, 2.6);
+		stations.get(Constants.TOKYO).addNearStation(Constants.OCHANOMIZU, 2.6);
+				
+		stations.get(Constants.SHINJUKU).addNearStation(Constants.OCHANOMIZU, 7.7);
+		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.SHINJUKU, 7.7);
 
 		//amarilla Sobu Line
 		stations.get(Constants.SENDAGAYA).addNearStation(Constants.SHINANOMACHI, 0.7);
@@ -166,13 +173,64 @@ public class Main {
 		stations.get(Constants.AKIHABARA).addNearStation(Constants.OCHANOMIZU, 0.9);
 
 		
-		//roja Chuo Line (Rapid Service)
-		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.TOKYO, 2.6);
-		stations.get(Constants.TOKYO).addNearStation(Constants.OCHANOMIZU, 2.6);
-		
-		stations.get(Constants.SHINJUKU).addNearStation(Constants.OCHANOMIZU, 7.7);
-		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.SHINJUKU, 7.7);
+	
 		
 		System.out.println(stations);
+		
+		//Line 1 = Yamanote Line (Green)
+		//Line 2 = Chuo Line (Red)
+		//Line 3 = Sobu Line (Yellow)
+		stations.get(Constants.YOYOGI).addLine(1);
+		stations.get(Constants.SHINJUKU).addLine(1);
+		stations.get(Constants.SHINOKUBO).addLine(1);
+		stations.get(Constants.TAKADANOBABA).addLine(1);
+		stations.get(Constants.MEJIRO).addLine(1);
+		stations.get(Constants.IKEBUKURO).addLine(1);
+		stations.get(Constants.OTSUKA).addLine(1);
+		stations.get(Constants.SUGAMO).addLine(1);
+		stations.get(Constants.KOMAGOME).addLine(1);
+		stations.get(Constants.TABATA).addLine(1);
+		stations.get(Constants.NISHINIPPORI).addLine(1);
+		stations.get(Constants.NIPPORI).addLine(1);
+		stations.get(Constants.UGUISUDANI).addLine(1);
+		stations.get(Constants.UENO).addLine(1);
+		stations.get(Constants.OKACHIMACHI).addLine(1);
+		stations.get(Constants.AKIHABARA).addLine(1);
+		stations.get(Constants.KANDA).addLine(1);
+		stations.get(Constants.TOKYO).addLine(1);
+		stations.get(Constants.YURAKUCHO).addLine(1);
+		stations.get(Constants.SHIMBASHI).addLine(1);
+		stations.get(Constants.HAMAMATSUCHO).addLine(1);
+		stations.get(Constants.TAMACHI).addLine(1);
+		stations.get(Constants.SHINAGAWA).addLine(1);
+		stations.get(Constants.OSAKI).addLine(1);
+		stations.get(Constants.GOTANDA).addLine(1);
+		stations.get(Constants.MEGURO).addLine(1);
+		stations.get(Constants.EBISU).addLine(1);
+		stations.get(Constants.SHIBUYA).addLine(1);
+		stations.get(Constants.HARAJUKU).addLine(1);
+
+		stations.get(Constants.SHINJUKU).addLine(2);
+		stations.get(Constants.TOKYO).addLine(2);
+		stations.get(Constants.OCHANOMIZU).addLine(2);
+
+		stations.get(Constants.SHINJUKU).addLine(3);
+		stations.get(Constants.YOYOGI).addLine(3);
+		stations.get(Constants.SENDAGAYA).addLine(3);
+		stations.get(Constants.SHINANOMACHI).addLine(3);
+		stations.get(Constants.YOTSUYA).addLine(3);
+		stations.get(Constants.IICHIGAYA).addLine(3);
+		stations.get(Constants.IIDABASHI).addLine(3);
+		stations.get(Constants.SUIDOBASHI).addLine(3);
+		stations.get(Constants.AKIHABARA).addLine(3);
+
+	
+		
+		
+		
+		
+		
+		
+		
 	}
 }
