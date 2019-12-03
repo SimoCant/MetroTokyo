@@ -131,7 +131,7 @@ public class MetroTokyo {
 		get(Constants.SHIBUYA).addNearStation(Constants.HARAJUKU, 1.2);
 		get(Constants.HARAJUKU).addNearStation(Constants.SHIBUYA, 1.2);
 			
-			//roja Chuo Line (Rapid Service)
+		//roja Chuo Line (Rapid Service)
 		get(Constants.OCHANOMIZU).addNearStation(Constants.TOKYO, 2.6);
 		get(Constants.TOKYO).addNearStation(Constants.OCHANOMIZU, 2.6);
 				
