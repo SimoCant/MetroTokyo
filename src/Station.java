@@ -14,8 +14,6 @@ public class Station {
 		this.name = name;
 		this.longitude = longitude;
 		this.latitude = latitude;
-		this.nearStations = nearStations;
-		this.lines = lines;
 	}
 
 	public String getName() {
@@ -36,5 +34,9 @@ public class Station {
 	
 	public void addNearStation(String name, Double distance) {
 		nearStations.put(name, distance);		
+	}
+	
+	public void addLine(Integer line) {
+		lines.add(line);		
 	}
 }
