@@ -1,10 +1,6 @@
 public final class Constants {	
-
 	static final String IKEBUKURO="Ikebukuro";
 	static final String MEJIRO="Mejiro";
-<<<<<<< HEAD
-	static final String YOYOGI="Yoyogi";	
-=======
 	static final String YOYOGI="Yoyogi";
 	static final String SHINJUKU="Shinjuku";
 	static final String SHINOKUBO="Shin-Okubo";
@@ -39,12 +35,4 @@ public final class Constants {
 	static final String SUIDOBASHI="Suidobashi";
 	static final String IIDABASHI="Iidabashi";	
 	static final String OCHANOMIZU = "Ochanomizu";	
-
-	
-	
-
-	
-	
-	
->>>>>>> branch 'master' of https://github.com/SimoCant/MetroTokyo.git
 }
