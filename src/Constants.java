@@ -1,4 +1,5 @@
 public final class Constants {	
+
 	static final String IKEBUKURO="Ikebukuro";
 	static final String MEJIRO="Mejiro";
 	static final String YOYOGI="Yoyogi";
@@ -34,5 +35,5 @@ public final class Constants {
 	static final String IICHIGAYA="Iichigaya";	
 	static final String SUIDOBASHI="Suidobashi";
 	static final String IIDABASHI="Iidabashi";	
-	static final String OCHANOMIZU = "Ochanomizu";	
+	static final String OCHANOMIZU = "Ochanomizu";
 }
