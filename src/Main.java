@@ -7,7 +7,7 @@ public class Main {
 		AStar a = new AStar();		
 		ArrayList<String> path;
 		
-		path = a.findPath("Shinjuku", "Tokyo");
+		path = a.findPath("Shinjuku", "Ochanomizu");
 		if(path == null)
 			System.out.println("No path found");
 		else {
