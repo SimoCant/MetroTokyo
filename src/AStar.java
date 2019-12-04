@@ -152,7 +152,7 @@ public class AStar {
 		stations.get(Constants.OCHANOMIZU).addNearStation(Constants.SHINJUKU, 7.7);
 	}
 
-	public ArrayList<String> findPath(String source, String dest) { //returns the path + final distance
+	public ArrayList<String> findPath(String source, String dest) {
 		double tentativeGScore = 0;
 		Station sourceStation = stations.get(source);
 		Station destinationStation = stations.get(dest);
@@ -186,8 +186,7 @@ public class AStar {
 				}
 			}
 			
-		}
-		
+		}		
 		return null;
 	}
 	
