@@ -160,6 +160,9 @@ public class AStar {
 		HashMap<String, String> cameFrom = new HashMap<>();
 		HashMap<String, Double> gScore = new HashMap<>();
 		HashMap<String, Double> fScore = new HashMap<>();
+		
+		if(!stations.containsKey(source) || !stations.containsKey(dest))
+			return null;
 
 		openSet.add(source);
 		initializeToInfinity(gScore);
