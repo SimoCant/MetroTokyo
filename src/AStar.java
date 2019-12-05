@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class AStar {
 	
-	HashMap<String, Station> stations = new HashMap<>();
+	private HashMap<String, Station> stations = new HashMap<>();
 	
 	public AStar() {
 		stations.put(Constants.YOYOGI, new Station(Constants.YOYOGI,35.683828, 139.70232));
@@ -215,7 +215,7 @@ public class AStar {
 		return result;
 	}
 	
-	public void initializeToInfinity(HashMap<String, Double> map) {
+	private void initializeToInfinity(HashMap<String, Double> map) {
 		for(String s : stations.keySet())
 			map.put(s, Double.POSITIVE_INFINITY);
 	}
