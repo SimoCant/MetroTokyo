@@ -216,4 +216,9 @@ public class AStar {
 		for(String s : stations.keySet())
 			map.put(s, Double.POSITIVE_INFINITY);
 	}
+	
+	public ArrayList<String> getStations(){
+		ArrayList<String> stationList = new ArrayList<>(stations.keySet());
+		return stationList;
+	}
 }
