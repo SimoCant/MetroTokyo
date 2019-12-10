@@ -108,16 +108,37 @@ public class AStar {
 		stations.get(Constants.TOKYO).addNearStation(Constants.KANDA, 1.3);
 
 		stations.get(Constants.TOKYO).addNearStation(Constants.YURAKUCHO, 0.8);
+		stations.get(Constants.YURAKUCHO).addNearStation(Constants.TOKYO, 0.8);
+		
 		stations.get(Constants.YURAKUCHO).addNearStation(Constants.SHIMBASHI, 1.1);
+		stations.get(Constants.SHIMBASHI).addNearStation(Constants.YURAKUCHO, 1.1);
+		
 		stations.get(Constants.SHIMBASHI).addNearStation(Constants.HAMAMATSUCHO, 1.2);
+		stations.get(Constants.HAMAMATSUCHO).addNearStation(Constants.SHIMBASHI, 1.2);
+		
 		stations.get(Constants.HAMAMATSUCHO).addNearStation(Constants.TAMACHI, 1.5);
+		stations.get(Constants.TAMACHI).addNearStation(Constants.HAMAMATSUCHO, 1.5);
+		
 		stations.get(Constants.TAMACHI).addNearStation(Constants.SHINAGAWA, 2.2);
+		stations.get(Constants.SHINAGAWA).addNearStation(Constants.TAMACHI, 2.2);
+		
 		stations.get(Constants.SHINAGAWA).addNearStation(Constants.OSAKI, 2.0);
+		stations.get(Constants.OSAKI).addNearStation(Constants.SHINAGAWA, 2.0);
+		
 		stations.get(Constants.OSAKI).addNearStation(Constants.GOTANDA, 0.9);
+		stations.get(Constants.GOTANDA).addNearStation(Constants.OSAKI, 0.9);
+		
 		stations.get(Constants.GOTANDA).addNearStation(Constants.MEGURO, 1.2);
+		stations.get(Constants.MEGURO).addNearStation(Constants.GOTANDA, 1.2);
+		
 		stations.get(Constants.MEGURO).addNearStation(Constants.EBISU, 1.5);
+		stations.get(Constants.EBISU).addNearStation(Constants.MEGURO, 1.5);
+		
 		stations.get(Constants.EBISU).addNearStation(Constants.SHIBUYA, 1.6);
+		stations.get(Constants.SHIBUYA).addNearStation(Constants.EBISU, 1.6);
+		
 		stations.get(Constants.SHIBUYA).addNearStation(Constants.HARAJUKU, 1.2);
+		stations.get(Constants.HARAJUKU).addNearStation(Constants.SHIBUYA, 1.2);
 
 		//amarilla
 		stations.get(Constants.SENDAGAYA).addNearStation(Constants.SHINANOMACHI, 0.7);
@@ -218,5 +239,10 @@ public class AStar {
 	private void initializeToInfinity(HashMap<String, Double> map) {
 		for(String s : stations.keySet())
 			map.put(s, Double.POSITIVE_INFINITY);
+	}
+	
+	public ArrayList<String> getStations(){
+		ArrayList<String> stationList = new ArrayList<>(stations.keySet());
+		return stationList;
 	}
 }
