@@ -1,13 +1,17 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.image.ImageObserver;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JScrollPane;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -16,20 +20,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Main {
-	 //Global Constants
-    private static final Color BGCOLOR = Color.LIGHT_GRAY;
-
     // Swing Elements
     private JFrame GraphicalInterface;
-    private JTextArea textAreaParadas;
+    private JTextArea TAResults;
     private JTextField textTiempo;
     private JTextField textDistancia;
 
     // Custom Elements
     private AStar a = new AStar();	
     private ArrayList<String> stationsList = a.getStations();
-    //private Imagen dibujo = new Imagen();
-
+    private MetroMap image=new MetroMap();   
 
     public static void main(String[] args) {
         EventQueue.invokeLater(()->{
@@ -48,74 +48,79 @@ public class Main {
     }
 
     private void initialize() {
+    	//----- Main JFrame -----
         GraphicalInterface = new JFrame();
-        GraphicalInterface.getContentPane().setFont(new Font("Century Gothic", Font.BOLD, 15));
-        GraphicalInterface.getContentPane().setBackground(BGCOLOR);
+        GraphicalInterface.getContentPane().setFont(new Font("Calibri", Font.BOLD, 15));
         GraphicalInterface.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GraphicalInterface.setFont(new Font("Century Gothic", Font.BOLD, 15));
+        GraphicalInterface.setFont(new Font("Calibri", Font.BOLD, 15));
         GraphicalInterface.setTitle("Metro de Tokyo");
-        GraphicalInterface.setBounds(300, 25, 1000, 680);
+        GraphicalInterface.setBounds(0, 0, 800, 655);
         GraphicalInterface.getContentPane().setLayout(null);
+        GraphicalInterface.setResizable(false);
 
-        JPanel panelOrigen = new JPanel();
-        panelOrigen.setBackground(BGCOLOR);
-        panelOrigen.setBounds(0, 10, 217, 76); //Bordes
-        GraphicalInterface.getContentPane().add(panelOrigen);
-        panelOrigen.setLayout(null);
+        //----- JPanel Origen -----
+        JPanel panelOrigin = new JPanel();
+        panelOrigin.setLayout(null);
+        panelOrigin.setBounds(0, 10, 217, 76);         
 
-        final JComboBox comboBoxOrigen = new JComboBox(stationsList.toArray());
-        comboBoxOrigen.setEditable(true);
-        comboBoxOrigen.setBackground(SystemColor.textHighlight);
-        comboBoxOrigen.setForeground(Color.WHITE);
-        comboBoxOrigen.setFont(new Font("Century Gothic", Font.BOLD, 12));
-        comboBoxOrigen.setBounds(25, 37, 182, 28);
-        panelOrigen.add(comboBoxOrigen);
+        final JComboBox CBOrigin = new JComboBox(stationsList.toArray());
+        CBOrigin.setEditable(true);
+        CBOrigin.setBackground(Color.white);
+        CBOrigin.setForeground(Color.black);
+        CBOrigin.setFont(new Font("Calibri", Font.BOLD, 15));
+        CBOrigin.setBounds(25, 37, 182, 28);
+        panelOrigin.add(CBOrigin);
 
-        JLabel labelOrigen = new JLabel("ORIGEN:");
-        labelOrigen.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        labelOrigen.setForeground(Color.BLACK);
-        labelOrigen.setBounds(25, 11, 104, 15);
-        panelOrigen.add(labelOrigen);
+        JLabel labelOrigin = new JLabel("Origen:");
+        labelOrigin.setFont(new Font("Calibri", Font.BOLD, 16));
+        labelOrigin.setForeground(Color.BLACK);
+        labelOrigin.setBounds(25, 11, 104, 15);
+        panelOrigin.add(labelOrigin);
 
+        GraphicalInterface.getContentPane().add(panelOrigin);
+        
+        //----- JPanel Destino -----
         JPanel panelDestino = new JPanel();
-        panelDestino.setBackground(BGCOLOR);
-        panelDestino.setForeground(Color.WHITE);
         panelDestino.setLayout(null);
-        panelDestino.setBounds(230, 10, 217, 76);
-        GraphicalInterface.getContentPane().add(panelDestino);
+        panelDestino.setBounds(215, 10, 217, 76);        
 
-        final JComboBox comboBoxDestino = new JComboBox(stationsList.toArray());
-        comboBoxDestino.setForeground(Color.WHITE);
-        comboBoxDestino.setFont(new Font("Century Gothic", Font.BOLD, 12));
-        comboBoxDestino.setEditable(true);
-        comboBoxDestino.setBackground(SystemColor.textHighlight);
-        comboBoxDestino.setBounds(10, 41, 197, 28);
-        panelDestino.add(comboBoxDestino);
+        final JComboBox CBDestino = new JComboBox(stationsList.toArray());
+        CBDestino.setEditable(true);
+        CBDestino.setBackground(Color.white);
+        CBDestino.setForeground(Color.black);
+        CBDestino.setFont(new Font("Calibri", Font.BOLD, 15));                
+        CBDestino.setBounds(10, 37, 197, 28);
+        panelDestino.add(CBDestino);        
 
-        JLabel labelDestino = new JLabel("DESTINO:");
-        labelDestino.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        JLabel labelDestino = new JLabel("Destino:");
+        labelDestino.setFont(new Font("Calibri", Font.BOLD, 16));
+        labelDestino.setForeground(Color.BLACK);
         labelDestino.setBounds(10, 11, 77, 19);
         panelDestino.add(labelDestino);
+        
+        GraphicalInterface.getContentPane().add(panelDestino);
 
-        JButton buttonHallarRuta = new JButton("Hallar ruta");
-        buttonHallarRuta.setForeground(Color.BLACK);
-        buttonHallarRuta.setFont(new Font("Century Gothic", Font.BOLD, 12));
-        buttonHallarRuta.setBackground(Color.GREEN);
-        buttonHallarRuta.setBounds(455, 50, 117, 25);
+        //----- JButton 'Hallar ruta' -----
+        JButton buttonHallarRuta = new JButton("Hallar Ruta");
+        buttonHallarRuta.setFont(new Font("Calibri", Font.BOLD, 16));
+        Color myCol = new Color(104, 157, 246);
+        buttonHallarRuta.setBackground(myCol);
+        buttonHallarRuta.setBounds(440, 47, 150, 28);
         buttonHallarRuta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
             	
             	double totalDistance;		
         		ArrayList<String> path;        		
-        		path = a.findPath(comboBoxOrigen.getSelectedItem().toString(), comboBoxDestino.getSelectedItem().toString());
+        		path = a.findPath(CBOrigin.getSelectedItem().toString(), CBDestino.getSelectedItem().toString());
 
                 if (path == null){
                     System.out.println("Empty estacionesOptimas");
                     return;
                 }
                 
-                double tiempoTotal = 0 /*aEstrella.getTiempoRecorridoTotal() * 60*/;
-                totalDistance = a.getTotalDistance(path);
+                double dist=a.getTotalDistance(path);
+                double tiempoTotal = (dist/30)*60;
+                totalDistance = dist;
 
                 String msg ="";
                 for(int i=0; i<path.size(); i++) {
@@ -123,7 +128,7 @@ public class Main {
                 	msg+="\n";
                 }
 
-                textAreaParadas.setText(msg);
+                TAResults.setText(msg);
                 textTiempo.setText(String.format("%.2f minutos", tiempoTotal));
                 textDistancia.setText(String.format("%.2f km", totalDistance));
             }
@@ -131,67 +136,72 @@ public class Main {
 
         GraphicalInterface.getContentPane().add(buttonHallarRuta);
 
-        textAreaParadas = new JTextArea();
-        textAreaParadas.setForeground(Color.WHITE);
-        textAreaParadas.setBackground(SystemColor.textHighlight);
-        textAreaParadas.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        JScrollPane scrollPaneParadas = new JScrollPane(textAreaParadas);
-        scrollPaneParadas.setEnabled(false);
-        scrollPaneParadas.setBounds(750, 75, 217, 300);
-        GraphicalInterface.getContentPane().add(scrollPaneParadas);
+        
 
+        //----- Metro Map Image -----
+        image.setBounds(25, 97, 565, 500);
+        image.setBackground(Color.WHITE);
+        GraphicalInterface.getContentPane().add(image);
+        
+        //----- JPanel stations ------
         JPanel panelParadas = new JPanel();
         panelParadas.setLayout(null);
-        panelParadas.setForeground(BGCOLOR);
-        panelParadas.setBackground(BGCOLOR);
-        panelParadas.setBounds(740, 10, 92, 48);
-        GraphicalInterface.getContentPane().add(panelParadas);
+        panelParadas.setBounds(600, 78, 175, 380);        
 
-        JLabel labelParadas = new JLabel("PARADAS:");
-        labelParadas.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        JLabel labelParadas = new JLabel("Paradas:");
+        labelParadas.setFont(new Font("Calibri", Font.BOLD, 16));
         labelParadas.setBounds(10, 15, 200, 20);
         panelParadas.add(labelParadas);
 
-        //dibujo=new Imagen();
-        /*dibujo.setBounds(0, 97, 730, 546);
-        dibujo.setBackground(Color.WHITE);
-        GraphicalInterface.getContentPane().add(dibujo);*/
-
-
-        JPanel panel_5 = new JPanel();
-        panel_5.setLayout(null);
-        panel_5.setForeground(Color.BLUE);
-        panel_5.setBackground(BGCOLOR);
-        panel_5.setBounds(740, 421, 217, 76);
-        GraphicalInterface.getContentPane().add(panel_5);
-
+        TAResults = new JTextArea();
+        TAResults.setForeground(Color.black);
+        TAResults.setBackground(Color.white);
+        TAResults.setFont(new Font("Calibri", Font.BOLD, 15));
+        
+        JScrollPane scrollPaneParadas = new JScrollPane(TAResults);
+        scrollPaneParadas.setEnabled(false);
+        scrollPaneParadas.setBounds(10, 50, 160, 330);
+        panelParadas.add(scrollPaneParadas);
+        
+        GraphicalInterface.getContentPane().add(panelParadas);
+        
+        //----- JPanel results -----
+        JPanel panelResults = new JPanel();
+        panelResults.setLayout(null);
+        panelResults.setBounds(600, 468, 250, 300);
+        
         JLabel lblTiempoEstimado = new JLabel("Tiempo estimado:");
         lblTiempoEstimado.setForeground(Color.BLACK);
-        lblTiempoEstimado.setFont(new Font("Century Gothic", Font.BOLD, 15));
+        lblTiempoEstimado.setFont(new Font("Calibri", Font.BOLD, 16));
         lblTiempoEstimado.setBounds(10, 11, 162, 15);
-        panel_5.add(lblTiempoEstimado);
+        panelResults.add(lblTiempoEstimado);               
 
         textTiempo = new JTextField();
-        textTiempo.setBackground(SystemColor.textHighlight);
-        textTiempo.setForeground(Color.WHITE);
-        textTiempo.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        textTiempo.setBounds(10, 44, 202, 21);
-        panel_5.add(textTiempo);
+        textTiempo.setBackground(Color.white);
+        textTiempo.setForeground(Color.black);
+        textTiempo.setFont(new Font("Calibri", Font.BOLD, 15));
+        textTiempo.setBounds(10, 40, 160, 21);        
         textTiempo.setColumns(10);
-
-        textDistancia = new JTextField();
-        textDistancia.setForeground(Color.WHITE);
-        textDistancia.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        textDistancia.setColumns(10);
-        textDistancia.setBackground(SystemColor.textHighlight);
-        textDistancia.setBounds(750, 539, 202, 21);
-        GraphicalInterface.getContentPane().add(textDistancia);
+        panelResults.add(textTiempo);
 
         JLabel lblDistanciaRecorrido = new JLabel("Distancia recorrida:");
         lblDistanciaRecorrido.setForeground(Color.BLACK);
-        lblDistanciaRecorrido.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        lblDistanciaRecorrido.setBounds(750, 513, 162, 15);
-        GraphicalInterface.getContentPane().add(lblDistanciaRecorrido);
+        lblDistanciaRecorrido.setFont(new Font("Calibri", Font.BOLD, 16));
+        lblDistanciaRecorrido.setBounds(10, 80, 162, 15);
+        panelResults.add(lblDistanciaRecorrido);
+        
+        textDistancia = new JTextField();
+        textDistancia.setBackground(Color.white);
+        textDistancia.setForeground(Color.black);
+        textDistancia.setFont(new Font("Calibri", Font.BOLD, 15));
+        textDistancia.setBounds(10, 109, 160, 21);
+        textDistancia.setColumns(10);        
+        panelResults.add(textDistancia);        
+        
+        GraphicalInterface.getContentPane().add(panelResults); 
+        
+        
+        
         GraphicalInterface.setVisible(true);
     }
 }
