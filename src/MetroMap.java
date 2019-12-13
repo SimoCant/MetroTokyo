@@ -12,7 +12,7 @@ public class MetroMap extends JPanel {
 	
 		public MetroMap() {
 			try {                
-				image = ImageIO.read(new File("metroTokyo.png"));
+				image = ImageIO.read(MetroMap.class.getResourceAsStream("/metroTokyo.png"));
 			} catch (IOException ex) {
 	            // handle exception...
 			}
